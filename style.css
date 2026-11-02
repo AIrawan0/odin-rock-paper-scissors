@@ -1,0 +1,24 @@
+body{
+    min-height: 100vh;
+    left: 0;
+    right: 0;
+    background-color:beige;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+.content button{
+    border: none;
+    padding: 10px 30px;
+    border-radius: 18px;
+    background: lightskyblue;
+    border: 8px solid rgb(50, 50, 50);
+    color: white;
+    font-weight: 900;
+    font-size: 32px;
+    outline: auto;
+
+}

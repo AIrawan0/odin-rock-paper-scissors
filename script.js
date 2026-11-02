@@ -1,6 +1,5 @@
 const button = document.querySelector("#humanButton");
 const output = document.querySelector("#output");
-button.addEventListener("click",getHumanChoice);
 
 function getComputerChoice(){
     const value = ["rock","paper","scissors"];
@@ -48,7 +47,8 @@ function playRound(humans,computers){
     }
 }
 
-function playGame(round){
+function playGame(){
+    const round = 5;
     console.log("Lets play rock paper scissors!")
     console.log(`Player=${humanScore} || Computer=${computerScore}`)
 
@@ -76,4 +76,4 @@ function playGame(round){
 let computerScore = 0;
 let humanScore = 0;
 
-playGame(5);
+button.addEventListener("click",playGame);
