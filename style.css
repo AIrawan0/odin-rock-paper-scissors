@@ -77,9 +77,20 @@ body{
     margin-top: 16px;
 }
 
-.result{
+.log{
     display: flex;
     color: #ffff;
     background: #393939;
     padding: 16px 56px;
+    flex-direction: column;
+}
+
+.log ul{
+    padding: 0;
+}
+
+.log li{
+    color: white;
+    font-size: 24px;
+    list-style-type: none;
 }

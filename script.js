@@ -1,19 +1,15 @@
-const button = document.querySelector("#humanButton");
-const output = document.querySelector("#output");
-
 function getComputerChoice(){
     const value = ["rock","paper","scissors"];
     const rand = Math.floor(Math.random() * 3);
     const selection = value[rand];
-    console.log("Computer choose :" + selection);
     return selection;
 }
 
-function getHumanChoice(){
-    let selection = prompt("What is your fighter ? (rock,paper,scissors)")
-    console.log("Human choose : "+selection);
-    return selection;
-}
+// function getHumanChoice(){
+//     let selection = prompt("What is your fighter ? (rock,paper,scissors)")
+//     console.log("Human choose : "+selection);
+//     return selection;
+// }
 
 function fight(v1,v2){
     if(v1===v2){
@@ -35,14 +31,14 @@ function playRound(humans,computers){
     const v2 = computers.toLowerCase()
     const result = fight(v1,v2);
     if(result ==="tie"){
-        console.log(`Aw it's a tie!`)
+        addLog(`Aw it's a tie!`)
     }else{
         if(result){
             humanScore++;
-            console.log(`You WIN! ${v1} beats ${v2}`)
+            addLog(`You WIN! ${v1} beats ${v2}`)
         }else{
             computerScore++;
-            console.log(`You lose! ${v2} beats ${v1}`)
+            addLog(`You lose! ${v2} beats ${v1}`)
         }
     }
 }
@@ -73,7 +69,25 @@ function playGame(){
         console.log(`your score is ${humanScore} by computers ${computerScore}`)    }
 }
 
+function addLog(msg){
+    const listItem = document.createElement("li");
+    const span = document.createElement("span");
+    span.textContent = msg;
+    listItem.appendChild(span);
+    list.appendChild(listItem);
+}
+
+
 let computerScore = 0;
 let humanScore = 0;
 
-button.addEventListener("click",playGame);
+// button.addEventListener("click",playGame);
+
+const btn = document.querySelectorAll("button");
+const list = document.querySelector("#result");
+btn.forEach(btn =>{
+    btn.addEventListener("click", () => {
+        playRound(btn.id,getComputerChoice());
+    });
+});
+
