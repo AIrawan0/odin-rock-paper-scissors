@@ -27,20 +27,38 @@ function fight(v1,v2){
 }
 
 function playRound(humans,computers){
+    const listItem = document.querySelector("li");
     const v1 = humans.toLowerCase()
     const v2 = computers.toLowerCase()
     const result = fight(v1,v2);
+
     if(result ==="tie"){
-        addLog(`Aw it's a tie!`)
+        addLog(`ROUND ${round+1} : It's a tie`)
     }else{
         if(result){
             humanScore++;
-            addLog(`You WIN! ${v1} beats ${v2}`)
+            addLog(`ROUND ${round+1} : ${v1} beats ${v2}`);
         }else{
             computerScore++;
-            addLog(`You lose! ${v2} beats ${v1}`)
+            addLog(`ROUND ${round+1} : ${v2} beats ${v1}`);
         }
     }
+    round++;
+
+    if(computerScore >= 5 || humanScore >= 5){
+        if(humanScore > computerScore){
+            listItem.remove()
+            document.querySelector('ul').replaceChildren();
+            addLog("YOU WINN!!!")
+        }else{
+            listItem.remove()
+            document.querySelector('ul').replaceChildren();
+            addLog("YOU LOSE!!!")
+        }
+        computerScore = 0;
+        humanScore = 0;
+        round = 0;
+    };
 }
 
 function playGame(){
@@ -77,17 +95,25 @@ function addLog(msg){
     list.appendChild(listItem);
 }
 
-
+let round = 0;
 let computerScore = 0;
 let humanScore = 0;
 
-// button.addEventListener("click",playGame);
+const btn = document.querySelectorAll(".select");
+const list = document.querySelector("#log");
+const scorePlayer = document.querySelector("#pscore");
+const scoreComputer = document.querySelector("#cscore");
 
-const btn = document.querySelectorAll("button");
-const list = document.querySelector("#result");
+setInterval(() => {
+    scorePlayer.textContent = humanScore;
+    scoreComputer.textContent = computerScore;
+}, 100);
+
 btn.forEach(btn =>{
     btn.addEventListener("click", () => {
         playRound(btn.id,getComputerChoice());
     });
 });
+
+
 

@@ -15,24 +15,38 @@
     <div class="content">
         <div class="cards">
             <div class="card" id="rock">
-                <div class="image"></div>
+                <div class="image">
+                    <img src="images/rock.png" alt="">
+                </div>
                 <h3>ROCK</h3>
-                <button class="rock" id="rock">choose</button>
+                <button class="select" id="rock">choose</button>
             </div>        
             <div class="card" id="paper">
-                <div class="image"></div>
+                <div class="image">
+                    <img src="images/paper.png" alt="">
+                </div>
                 <h3>PAPER</h3>
-                <button class="paper" id="paper">choose</button>
+                <button class="select" id="paper">choose</button>
             </div>        
             <div class="card" id="scissors">
-                <div class="image"></div>
+                <div class="image">
+                    <img src="images/scissors.png" alt="">
+                </div>
                 <h3>SCISSORS</h3>
-                <button class="scissors" id="scissors">choose</button>
+                <button class="select" id="scissors">choose</button>
             </div>
         </div>
         <div class="log">
-            <h2>RESULT</h2>
-            <ul id="result"></ul>
+            <h1>SCORE</h3>
+            <div class="score-container">
+                <h3>HUMAN : </h3>
+                <span id="pscore">0</span>
+            </div>
+            <div class="score-container">
+                <h3>COMPUTER : </h3>
+                <span id="cscore">0</span>
+            </div>
+            <ul id="log"></ul>
         </div>
     </div>
 
