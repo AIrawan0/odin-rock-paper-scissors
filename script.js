@@ -49,11 +49,11 @@ function playRound(humans,computers){
         if(humanScore > computerScore){
             listItem.remove()
             document.querySelector('ul').replaceChildren();
-            addLog("YOU WINN!!!")
+            addLog(`YOU WINN!!! by ${humanScore} score to ${computerScore}`);
         }else{
             listItem.remove()
             document.querySelector('ul').replaceChildren();
-            addLog("YOU LOSE!!!")
+            addLog(`YOU LOSE!!! by ${humanScore} score to ${computerScore}`);
         }
         computerScore = 0;
         humanScore = 0;
