@@ -11,7 +11,6 @@
         <h1>PLAY ROCK PAPER SCISSORS</h1>
         <p>choose your weapon</p>
     </div>
-
     <div class="content">
         <div class="cards">
             <div class="card" id="rock">
@@ -47,6 +46,15 @@
                 <span id="cscore">0</span>
             </div>
             <ul id="log"></ul>
+        </div>
+    </div>
+
+    <button id="openModal" onclick="restart()">RESTART</button>
+    <div class="overlay hidden" id="modal">
+        <div class="box">
+            <span id="message">YOU WIN</span>
+            <span id="msgscore"></span>~
+            <button id="closeModal">OKAY</button>
         </div>
     </div>
 

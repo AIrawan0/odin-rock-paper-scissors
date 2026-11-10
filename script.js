@@ -46,19 +46,30 @@ function playRound(humans,computers){
     round++;
 
     if(computerScore >= 5 || humanScore >= 5){
+        const msg =  document.getElementById("message");
+        const score =  document.getElementById("msgscore");
         if(humanScore > computerScore){
-            listItem.remove()
-            document.querySelector('ul').replaceChildren();
-            addLog(`YOU WINN!!! by ${humanScore} score to ${computerScore}`);
+            const win = `You win by ${humanScore} score to ${computerScore}`;
+            msg.textContent = "YOU WIN!!";
+            score.textContent = win;
+            document.getElementById("modal").classList.remove("hidden");
+            restart();
         }else{
-            listItem.remove()
-            document.querySelector('ul').replaceChildren();
-            addLog(`YOU LOSE!!! by ${humanScore} score to ${computerScore}`);
+            const lose = `You lose by ${humanScore} score to ${computerScore}`;
+            msg.textContent = "YOU LOSE!!";
+            score.textContent = lose;
+            document.getElementById("modal").classList.remove("hidden")
+            restart();
         }
-        computerScore = 0;
-        humanScore = 0;
-        round = 0;
+ 
     };
+}
+
+function restart(){
+    document.querySelector('ul').replaceChildren();
+    computerScore = 0;
+    humanScore = 0;
+    round = 0;
 }
 
 function playGame(){
@@ -113,6 +124,17 @@ btn.forEach(btn =>{
     btn.addEventListener("click", () => {
         playRound(btn.id,getComputerChoice());
     });
+});
+
+//MODAL
+const overlay = document.getElementById("modal")
+const closeModal = document.getElementById("closeModal");
+
+closeModal.addEventListener("click",()=>overlay.classList.add("hidden"));
+overlay.addEventListener("click",(event)=>{
+    if(event.target === overlay){
+        overlay.classList.add("hidden")
+    }
 });
 
 
